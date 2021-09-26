@@ -41,7 +41,7 @@ To contribute, please follow the [guidelines](https://github.com/divanov11/mumbl
 ```bash
 git clone git@github.com:OtakuStanYoutube/cms.git
 # After cloning, move into the directory having the project files using the change directory command
-cd mumbleapi
+cd cms
 ```
 2. Create a virtual environment where all the required python packages will be installed
 

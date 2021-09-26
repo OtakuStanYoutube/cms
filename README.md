@@ -39,7 +39,7 @@ To contribute, please follow the [guidelines](https://github.com/divanov11/mumbl
 1. Clone the repository using the following command
 
 ```bash
-git clone git@github.com:divanov11/mumbleapi.git
+git clone git@github.com:OtakuStanYoutube/cms.git
 # After cloning, move into the directory having the project files using the change directory command
 cd mumbleapi
 ```

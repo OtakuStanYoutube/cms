@@ -1,4 +1,5 @@
 # OtakuStan CMS
+
 <div align="center">
     <h1>Welcome to OtakuStan CMS Repository</h1>
 </div>
@@ -10,7 +11,11 @@ This is an Central Content Management system for Otakustan to power all our dyna
 
 <div>
 
+[<img src="https://img.shields.io/badge/-Python-306998?style=for-the-badge&labelColor=black&logo=python&logoColor=4b8bbe" >](https://www.python.org/)
+
 [<img src="https://img.shields.io/badge/-Django-092e20?style=for-the-badge&labelColor=black&logo=Django&logoColor=092e20" >](https://www.djangoproject.com/)
+
+[<img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&labelColor=black&logo=sqlite&logoColor=white" >](https://www.sqlite.org/index.html)
 
 
 </div>

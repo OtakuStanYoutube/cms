@@ -5,4 +5,9 @@
         "--load-plugins=pylint_django,pylint_celery",
     ],
     "python.linting.pylintEnabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.ignorePatterns": [
+        "**/site-packages/**/*.py",
+        ".vscode/*.py"
+    ]
 }

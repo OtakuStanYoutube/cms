@@ -34,7 +34,6 @@ This is an Central Content Management system for Otakustan to power all our dyna
 
 Make sure you have **Python 3.x** installed and **the latest version of pip** *installed* before running these steps.
 
-To contribute, please follow the [guidelines](https://github.com/divanov11/mumbleapi/blob/master/Contributing.md) process.
 
 1. Clone the repository using the following command
 

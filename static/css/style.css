@@ -97,9 +97,11 @@ img {
 
 .header__search {
   display: flex;
-  padding: .40rem .75rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   background-color: var(--first-color-light);
-  border-radius: .25rem;
+  border-radius: 0.5rem;
 }
 
 .header__input {

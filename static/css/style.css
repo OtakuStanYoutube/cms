@@ -97,7 +97,6 @@ img {
 
 .header__search {
   display: flex;
-  width: 100%;
   justify-content: center;
   align-items: center;
   background-color: var(--first-color-light);

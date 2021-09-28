@@ -8,12 +8,12 @@
 
   /*========== Colors ==========*/
   --first-color: #6923D0;
-  --first-color-light: #F4F0FA;
-  --title-color: #19181B;
+  --first-color-light: #24262D;
+  --title-color: #F4F0FA;
   --text-color: #58555E;
   --text-color-light: #A5A1AA;
-  --body-color: #F9F6FD;
-  --container-color: #FFFFFF;
+  --body-color: #121317;
+  --container-color: #1A1c23;
 
   /*========== Font and typography ==========*/
   --body-font: 'Poppins', sans-serif;

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.messages import error, success
-from django.contrib.auth.models import User
+from user.models import User
 
 # Create your views here.
 def home_page(request):

@@ -11,12 +11,12 @@ def login_page(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-        username = User.objects.get(email=email).username
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, email=email, password=password)
+        print(user)
         if user is not None:
             login(request, user)
             success(request, 'Logged in successfully.')
-            return redirect('home-page')
+            return redirect('home-view')
         else:
             error(request, 'Invalid username or password.')
             return render(request, 'user/login.html')

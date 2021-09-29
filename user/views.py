@@ -9,9 +9,8 @@ def home_page(request):
 def login_page(request):
     if request.method == 'POST':
         email = request.POST.get('email')
-        username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(request, username=username, email=email, password=password)
+        user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request, user)
             success(request, 'Logged in successfully.')

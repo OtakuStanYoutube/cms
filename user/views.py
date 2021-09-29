@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.messages import error, success
+from django.contrib.auth.models import User
 
 # Create your views here.
 def home_page(request):
@@ -10,7 +11,8 @@ def login_page(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-        user = authenticate(request, email=email, password=password)
+        username = User.objects.get(email=email).username
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             success(request, 'Logged in successfully.')

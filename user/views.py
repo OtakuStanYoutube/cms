@@ -19,5 +19,6 @@ def login_page(request):
             return redirect('home-view')
         else:
             error(request, 'Invalid username or password.')
-            return render(request, 'user/login.html')
-    return render(request, 'user/login.html')
+            return render(request, 'auth/login.html')
+    
+    return render(request, 'auth/login.html')

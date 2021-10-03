@@ -13,7 +13,6 @@ class UserManager(BaseUserManager):
 
         user = self.model(username=username, email=self.normalize_email(email))
         user.set_password(password)
-        user.role.set('Viewer')
         user.save()
         return user
 
@@ -22,7 +21,7 @@ class UserManager(BaseUserManager):
             raise TypeError('Password should not be none')
 
         user = self.create_user(username, email, password)
-        user.role.set('Admin')
+        user.role = 'Admin'
         user.is_active = True
         user.is_superuser = True
         user.is_staff = True
@@ -38,7 +37,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True, db_index=True)
     username = models.CharField(max_length=255, unique=True, db_index=True)
     imgUrl = models.CharField(max_length=255, default='https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y')
-    role = models.CharField(max_length=200, null=True, blank=True, choices=CATEGORY)
+    role = models.CharField(max_length=200, null=True, choices=CATEGORY)
     is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)

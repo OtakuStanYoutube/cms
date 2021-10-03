@@ -13,7 +13,7 @@ class UserManager(BaseUserManager):
 
         user = self.model(username=username, email=self.normalize_email(email))
         user.set_password(password)
-        user.role = 'Admin'
+        user.role.set('Viewer')
         user.save()
         return user
 
@@ -22,7 +22,7 @@ class UserManager(BaseUserManager):
             raise TypeError('Password should not be none')
 
         user = self.create_user(username, email, password)
-        user.role = 'Admin'
+        user.role.set('Admin')
         user.is_active = True
         user.is_superuser = True
         user.is_staff = True

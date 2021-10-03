@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages import error, success
 from django.contrib.auth.decorators import login_required
 
@@ -13,7 +13,6 @@ def login_page(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         user = authenticate(request, email=email, password=password)
-        print(user)
         if user is not None:
             login(request, user)
             success(request, 'Logged in successfully.')
@@ -23,3 +22,8 @@ def login_page(request):
             return render(request, 'auth/login.html')
     
     return render(request, 'auth/login.html')
+
+def logout_page(request):
+    logout(request)
+    success(request, 'Logged out successfully.')
+    return redirect('login-view')

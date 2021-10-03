@@ -29,21 +29,16 @@ class UserManager(BaseUserManager):
         user.save()
         return user
 
-class Role(models.Model):
+class User(AbstractBaseUser, PermissionsMixin):
     CATEGORY = (
         ('Admin', 'Admin'),
         ('Editor', 'Editor'),
         ('Viewer', 'Viewer'),
     )
-    role = models.CharField(max_length=200, null=True, blank=True, choices=CATEGORY)
-
-    def __str__(self):
-        return self.name
-class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True, db_index=True)
     username = models.CharField(max_length=255, unique=True, db_index=True)
     imgUrl = models.CharField(max_length=255, default='https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y')
-    role = models.ManyToManyField(Role)
+    role = models.CharField(max_length=200, null=True, blank=True, choices=CATEGORY)
     is_active = models.BooleanField(default=True)
     is_verified = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)

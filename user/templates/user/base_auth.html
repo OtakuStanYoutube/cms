@@ -20,10 +20,10 @@
     <title>CMS</title>
     {% endif %}
 </head>
-<body>
+<body class="bg-black">
     {% if messages %}
       {% for message in messages %}
-        {% if message.type == 'error' %}
+        {% if message.tags == 'error' %}
           <div class="bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
             <span class="font-medium">Danger!</span> {{ message }}
           </div>

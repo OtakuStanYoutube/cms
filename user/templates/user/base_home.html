@@ -28,20 +28,6 @@
 <body>
   {% include '_partials/header.html' %}
   {% include '_partials/navbar.html' %}
-
-  {% if messages %}
-  {% for message in messages %}
-    {% if message.type == 'error' %}
-      <div class="bg-red-100 rounded-lg p-4 mb-4 text-sm text-red-700" role="alert">
-        <span class="font-medium">Danger!</span> {{ message }}
-      </div>
-    {% else %}
-    <div class="bg-green-100 rounded-lg p-4 mb-4 text-sm text-green-700" role="alert">
-      <span class="font-medium">Success!</span> {{ message }}
-    </div>
-    {% endif %}
-  {% endfor %}
-{% endif %}
     {% block content %}
     {% endblock %}
 

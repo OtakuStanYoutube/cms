@@ -6,11 +6,11 @@ from .authDecorators import unauthenticated_user
 
 # Create your views here.
 @login_required(login_url='login-view')
-def home_page(request):
+def dashboard_view(request):
     return render(request, 'user/dashboard.html')
 
 @unauthenticated_user
-def login_page(request):
+def login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -25,7 +25,7 @@ def login_page(request):
     
     return render(request, 'auth/login.html')
 
-def logout_page(request):
+def logout_view(request):
     logout(request)
     success(request, 'Logged out successfully.')
     return redirect('login-view')

@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages import error, success
 from django.contrib.auth.decorators import login_required
 from .authDecorators import unauthenticated_user
+from .models import User
 
 # Create your views here.
 @login_required(login_url='login-view')
@@ -29,3 +30,11 @@ def logout_view(request):
     logout(request)
     success(request, 'Logged out successfully.')
     return redirect('login-view')
+
+def users_view(request):
+    users = User.objects.all()
+    context = {
+        'users': users
+    }
+    
+    return render(request, 'user/users.html', context)

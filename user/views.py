@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages import error, success
 from django.contrib.auth.decorators import login_required
-from .authDecorators import unauthenticated_user
+from .authDecorators import unauthenticated_user, is_admin
 from .models import User
 
 # Create your views here.
@@ -26,11 +26,14 @@ def login_view(request):
     
     return render(request, 'auth/login.html')
 
+@login_required(login_url='login-view')
 def logout_view(request):
     logout(request)
     success(request, 'Logged out successfully.')
     return redirect('login-view')
 
+@login_required(login_url='login-view')
+@is_admin
 def users_view(request):
     users = User.objects.all()
     context = {

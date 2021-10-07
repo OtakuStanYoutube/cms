@@ -4,6 +4,7 @@ from django.contrib.messages import error, success
 from django.contrib.auth.decorators import login_required
 from .authDecorators import unauthenticated_user, is_admin
 from .models import User
+from .forms import UserForm
 
 # Create your views here.
 @login_required(login_url='login-view')
@@ -41,3 +42,21 @@ def users_view(request):
     }
     
     return render(request, 'user/users.html', context)
+
+def create_user_view(request):
+    form = UserForm()
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            success(request, 'User created successfully.')
+            return redirect('users-view')
+        # email = request.POST.get('email')
+        # password = request.POST.get('password')
+        # user = User.objects.create_user(email, password)
+        # success(request, 'User created successfully.')
+        # return redirect('users-view')
+    
+    context = {'form': form}
+
+    return render(request, 'user/create_user.html', context)

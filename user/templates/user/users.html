@@ -29,6 +29,7 @@
         Delete
       </a>
       <a
+      href="{% url 'user-create-view' %}"
         class="
           flex
           items-center
@@ -154,6 +155,7 @@
                   </svg>
                 </a>
                 <a
+                href="{% url 'user-update-view' user.id %}"
                   class="
                     flex
                     items-center

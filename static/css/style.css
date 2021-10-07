@@ -257,6 +257,14 @@ img {
   color: var(--first-color);
 }
 
+.user__form{
+  background-color: var(--container-color);
+  border-radius: 0.5rem;
+}
+
+#hint_id_password1 {
+  display: none;
+}
 /* ========== MEDIA QUERIES ==========*/
 /* For small devices reduce search*/
 @media screen and (max-width: 320px) {

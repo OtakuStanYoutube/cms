@@ -34,7 +34,6 @@ def logout_view(request):
     return redirect('login-view')
 
 @login_required(login_url='login-view')
-@is_admin
 def users_view(request):
     users = User.objects.all()
     context = {
@@ -43,6 +42,9 @@ def users_view(request):
     
     return render(request, 'user/users.html', context)
 
+
+@login_required(login_url='login-view')
+@is_admin
 def create_user_view(request):
     form = UserForm()
     if request.method == 'POST':
@@ -51,12 +53,23 @@ def create_user_view(request):
             form.save()
             success(request, 'User created successfully.')
             return redirect('users-view')
-        # email = request.POST.get('email')
-        # password = request.POST.get('password')
-        # user = User.objects.create_user(email, password)
-        # success(request, 'User created successfully.')
-        # return redirect('users-view')
-    
-    context = {'form': form}
 
+    context = {'form': form}
     return render(request, 'user/create_user.html', context)
+
+
+@login_required(login_url='login-view')
+@is_admin
+def update_user_view(request,pk):
+    user = User.objects.get(pk=pk)
+    form = UserForm(instance=user)
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            success(request, 'User updated successfully.')
+            return redirect('users-view')
+        
+    context = {'form': form}
+    return render(request, 'user/update_user.html', context)
+    

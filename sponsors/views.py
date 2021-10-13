@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Sponsor, Sponsors
+from .models import Sponsors
 
 # Create your views here.
 def sponsors_view(request):

@@ -17,6 +17,7 @@ class Sponsors(BaseModel):
     name = models.CharField(max_length=100, db_index=True)
     description = models.TextField()
     domain = models.URLField(blank=True)
+    imgUrl = models.CharField(max_length=255, default='https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y')
     sponsor_type = models.CharField(max_length=100, choices=SPONSOR_CATEGORY, db_index=True)
     sponsored_domain = models.CharField(max_length=100, choices=SPONSORED_DOMAIN, db_index=True)
     amount = models.IntegerField(default=0)

@@ -1,10 +1,10 @@
 from django.shortcuts import redirect, render
-from .models import Sponsors
+from .models import Sponsor
 from .forms import SponsorForm
 from django.contrib.messages import error, success
 # Create your views here.
 def sponsors_view(request):
-    sponsors = Sponsors.objects.all()
+    sponsors = Sponsor.objects.all()
     context = {
         'sponsors': sponsors
     }

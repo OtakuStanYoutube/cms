@@ -2,7 +2,7 @@ from django.db import models
 from helpers.models import BaseModel
 
 # Create your models here.
-class Sponsors(BaseModel):
+class Sponsor(BaseModel):
     SPONSOR_CATEGORY = (
         ('Sponsored', 'Sponsored'),
         ('Integrated', 'Integrated'),

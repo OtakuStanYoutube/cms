@@ -22,4 +22,18 @@ def create_sponsor_view(request):
     context = {
         'form': sponsor_form
     }
-    return render(request, 'sponsors/create_sponsor.html', context)
+    return render(request, 'sponsors/sponsors.html', context=context)
+
+def update_sponsor_view(request, pk):
+    sponsor = Sponsor.objects.get(pk=pk)
+    sponsor_form = SponsorForm(instance=sponsor)
+    if request.method == 'POST':
+        sponsor_form = SponsorForm(request.POST, instance=sponsor)
+        if sponsor_form.is_valid():
+            sponsor_form.save()
+            success(request, 'Sponsor Updated successfully.')
+            redirect('sponsors-view')
+    context = {
+        'form': sponsor_form
+    }
+    return render(request, 'sponsors/sponsors.html', context=context)

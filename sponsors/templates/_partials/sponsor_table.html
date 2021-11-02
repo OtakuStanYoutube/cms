@@ -26,7 +26,7 @@
         Delete
       </a>
       <a
-      href="{% url 'create-sponsor-view'%}"
+      href="{% url 'create-sponsor-view' %}"
         class="
           flex
           items-center
@@ -154,7 +154,7 @@
                   </svg>
                 </a>
                 <a
-                href=""
+                href="{% url 'update-sponsor-view' sponsor.id %}"
                   class="
                     flex
                     items-center

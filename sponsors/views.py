@@ -22,7 +22,7 @@ def create_sponsor_view(request):
     context = {
         'form': sponsor_form
     }
-    return render(request, 'sponsors/sponsors.html', context=context)
+    return render(request, 'sponsors/create_sponsor.html', context=context)
 
 def update_sponsor_view(request, pk):
     sponsor = Sponsor.objects.get(pk=pk)
@@ -36,4 +36,4 @@ def update_sponsor_view(request, pk):
     context = {
         'form': sponsor_form
     }
-    return render(request, 'sponsors/sponsors.html', context=context)
+    return render(request, 'sponsors/update_sponsor.html', context=context)
